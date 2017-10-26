@@ -10,4 +10,11 @@
 */
 
 
-INSERT INTO vehiculo (idvehiculo,Matricula,Cilindraje,Marca,fechaentrada,tipo) VALUES(1,  'CRT903', '200CC','FERRARI','02/03/2017','carro');
+INSERT INTO vehiculo (idvehiculo,Matricula,Cilindraje,Marca,fechaentrada) VALUES(1,  'CRT903', '200CC','FERRARI','02/03/2017');
+
+
+INSERT INTO Slot(idslot,Tipoespacio) VALUES (1,'carro')
+
+
+
+	

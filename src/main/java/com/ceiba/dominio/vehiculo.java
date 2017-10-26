@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import com.ceiba.dominio.Slot;
 
 @Entity
 @NamedQueries( { @NamedQuery(name = "vehiculo.findAll", query = "SELECT v FROM vehiculo v ORDER BY v.idvehiculo") })
@@ -26,12 +29,12 @@ public class vehiculo {
 	
 	private String Marca;
 	
-	//@Column(nullable=false)
+	@OneToOne
+	@JoinColumn(name="idslot")
+	private Slot idslot;
+
+	
 	private String Fechaentrada;
-	
-	@Column(nullable=false)
-	private String tipo;
-	
 	
 	public vehiculo(){
 		
@@ -45,7 +48,7 @@ public class vehiculo {
 		this.Cilindraje = cilindraje;
 		this.Marca =Marca;
 		this.Fechaentrada =fechaentrada;
-		this.tipo=tipo;
+	
 	}
 	
 	
@@ -58,6 +61,16 @@ public class vehiculo {
 		
 	}
 
+	
+	public void Syncwith(String matricula, String cilindraje,String Marca,String fechaentrada,String tipo) {
+		this.Matricula = matricula;
+		this.Cilindraje = cilindraje;
+		this.Marca =Marca;
+		this.Fechaentrada =fechaentrada;
+	
+		
+		
+	}
 
 
 	public String getMatricula() {
@@ -78,11 +91,54 @@ public class vehiculo {
 	public String getMarca() {
 		return Marca;
 	}
-
+	
+	
 
 	public String getFechaentrada() {
 		return Fechaentrada;
 	}
+	
+	public Integer getIdvehiculo() {
+		return idvehiculo;
+	}
+
+
+	public void setIdvehiculo(Integer idvehiculo) {
+		this.idvehiculo = idvehiculo;
+	}
+
+
+	public void setMatricula(String matricula) {
+		Matricula = matricula;
+	}
+
+
+	public void setCilindraje(String cilindraje) {
+		Cilindraje = cilindraje;
+	}
+
+
+	public void setMarca(String marca) {
+		Marca = marca;
+	}
+
+
+	public void setFechaentrada(String fechaentrada) {
+		Fechaentrada = fechaentrada;
+	}
+
+	 
+	public Slot getSlot() {
+		
+		return idslot;
+	}
+	
+	public void setSlot(Slot idslot) {
+		
+		this.idslot = idslot;
+		
+	}
+
 
 
 
