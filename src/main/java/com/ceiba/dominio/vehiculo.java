@@ -1,5 +1,6 @@
 package com.ceiba.dominio;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ public class vehiculo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idvehiculo;
     
-	@Column(nullable=false)
+	@Column(nullable=false,unique=true)
 	private String Matricula;
 	
 	@Column(nullable=false)
@@ -29,12 +30,10 @@ public class vehiculo {
 	
 	private String Marca;
 	
-	@OneToOne
-	@JoinColumn(name="idslot")
-	private Slot idslot;
+	
 
 	
-	private String Fechaentrada;
+	private LocalDateTime Fechaentrada;
 	
 	public vehiculo(){
 		
@@ -42,7 +41,7 @@ public class vehiculo {
 	}
 	
 	
-	public vehiculo(String matricula, String cilindraje,String Marca,String fechaentrada,String tipo) {
+	public vehiculo(String matricula, String cilindraje,String Marca,LocalDateTime fechaentrada,String tipo) {
 	
 		this.Matricula = matricula;
 		this.Cilindraje = cilindraje;
@@ -62,7 +61,7 @@ public class vehiculo {
 	}
 
 	
-	public void Syncwith(String matricula, String cilindraje,String Marca,String fechaentrada,String tipo) {
+	public void Syncwith(String matricula, String cilindraje,String Marca,LocalDateTime fechaentrada,String tipo) {
 		this.Matricula = matricula;
 		this.Cilindraje = cilindraje;
 		this.Marca =Marca;
@@ -70,6 +69,57 @@ public class vehiculo {
 	
 		
 		
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Cilindraje == null) ? 0 : Cilindraje.hashCode());
+		result = prime * result + ((Fechaentrada == null) ? 0 : Fechaentrada.hashCode());
+		result = prime * result + ((Marca == null) ? 0 : Marca.hashCode());
+		result = prime * result + ((Matricula == null) ? 0 : Matricula.hashCode());
+		result = prime * result + ((idvehiculo == null) ? 0 : idvehiculo.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		vehiculo other = (vehiculo) obj;
+		if (Cilindraje == null) {
+			if (other.Cilindraje != null)
+				return false;
+		} else if (!Cilindraje.equals(other.Cilindraje))
+			return false;
+		if (Fechaentrada == null) {
+			if (other.Fechaentrada != null)
+				return false;
+		} else if (!Fechaentrada.equals(other.Fechaentrada))
+			return false;
+		if (Marca == null) {
+			if (other.Marca != null)
+				return false;
+		} else if (!Marca.equals(other.Marca))
+			return false;
+		if (Matricula == null) {
+			if (other.Matricula != null)
+				return false;
+		} else if (!Matricula.equals(other.Matricula))
+			return false;
+		if (idvehiculo == null) {
+			if (other.idvehiculo != null)
+				return false;
+		} else if (!idvehiculo.equals(other.idvehiculo))
+			return false;
+		return true;
 	}
 
 
@@ -83,10 +133,7 @@ public class vehiculo {
 	}
 
 
-	public Integer getId_Vehiculo() {
-		return idvehiculo;
-	}
-
+	
 
 	public String getMarca() {
 		return Marca;
@@ -94,7 +141,7 @@ public class vehiculo {
 	
 	
 
-	public String getFechaentrada() {
+	public LocalDateTime getFechaentrada() {
 		return Fechaentrada;
 	}
 	
@@ -123,21 +170,12 @@ public class vehiculo {
 	}
 
 
-	public void setFechaentrada(String fechaentrada) {
+	public void setFechaentrada(LocalDateTime fechaentrada) {
 		Fechaentrada = fechaentrada;
 	}
 
 	 
-	public Slot getSlot() {
-		
-		return idslot;
-	}
-	
-	public void setSlot(Slot idslot) {
-		
-		this.idslot = idslot;
-		
-	}
+
 
 
 

@@ -1,5 +1,7 @@
 package com.ceiba.repositorio;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -26,14 +28,30 @@ public class persistenciaVehiculo implements repositorioVehiculo{
 	@Override
 	public vehiculo obtenervehiculo(vehiculo Vehiculo) {
 		
-		return Configuracionjpa.GetEntityManager().find(vehiculo.class, Vehiculo.getId_Vehiculo());
+		return Configuracionjpa.GetEntityManager().find(vehiculo.class, Vehiculo.getIdvehiculo());
 	}
 
 	@Override
-	public void guardarvehiculo(vehiculo Vehiculo) {
+	public vehiculo guardarvehiculo(vehiculo Vehiculo) {
 		
-		Configuracionjpa.GetEntityManager().merge(Vehiculo);
+		Vehiculo.setFechaentrada(LocalDateTime.now());
+		return Configuracionjpa.GetEntityManager().merge(Vehiculo);
 		
+	}
+
+	@Override
+	public vehiculo actualizar(vehiculo Vehiculo) {
+		
+		return null;
+	}
+
+	@Override
+	public vehiculo borrarvehiculo(vehiculo Vehiculo) {
+		
+		
+	   vehiculo vehiculoencontrado=Configuracionjpa.GetEntityManager().find(vehiculo.class, Vehiculo.getIdvehiculo());
+	   Configuracionjpa.GetEntityManager().remove(vehiculoencontrado);
+	   return vehiculoencontrado;
 	}
 
 }

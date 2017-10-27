@@ -11,9 +11,16 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "slot.findAll", query = "SELECT s FROM Slot s WHERE s.Tipoespacio = carro") })
+@NamedQueries( { @NamedQuery(name = "slot.findbytipo", query = "SELECT s FROM Slot s WHERE s.Tipoespacio = :tipo and idvehiculo IS NOT NULL"),
+@NamedQuery(name = "slot.setcampo", query = "UPDATE Slot s set s.idvehiculo = NULL WHERE s.idvehiculo = :id")
+
+
+
+})
 public class Slot {
 	
+	
+
 	
 	@Id
 	@Column(nullable = false)
@@ -24,8 +31,21 @@ public class Slot {
 	@Column(nullable = false)
 	private String Tipoespacio;
 	
+	@OneToOne
+	@JoinColumn(name="idvehiculo")
+	private vehiculo idvehiculo;
 	
 	
+	
+	public Slot() {
+		
+		
+	}
+	
+	public Slot(String tipoespacio) {
+		
+		this.Tipoespacio=tipoespacio;
+	}
 	
 	
 	public Integer getIdslot() {
@@ -33,7 +53,7 @@ public class Slot {
 	}
 
 	public void setIdslot(Integer idslot) {
-		idslot = idslot;
+		this.idslot = idslot;
 	}
 
 	public String getTipoespacio() {
@@ -41,10 +61,19 @@ public class Slot {
 	}
 
 	public void setTipoespacio(String tipoespacio) {
-		Tipoespacio = tipoespacio;
+		this.Tipoespacio = tipoespacio;
 	}
 	
+	public vehiculo getidvehiculo() {
+		
+		return idvehiculo;
+		
+	}
 	
+	public void setidvehiculo(vehiculo idvehiculo) {
+		
+		this.idvehiculo=idvehiculo;
+	}
 	
 
 }

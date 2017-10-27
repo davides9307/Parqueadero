@@ -5,15 +5,21 @@ import java.util.List;
 
 import com.ceiba.dominio.Slot;
 import com.ceiba.dominio.vehiculo;
+import com.ceiba.dominio.vehiculoParqueado;
 
 public interface servicioControlflujoVehiculo {
 
 	
 	public List<vehiculo> Obtenervehiculosparqueados();
 	
-	public void guardarvehiculos(vehiculo Vehiculo,Slot slot);
+	public String guardarvehiculos(vehiculoParqueado vehiculo_slot);
 	
-	public boolean existenespaciosdisponibles();
+	public boolean existenespaciosdisponibles(Slot slot);
+	
+	public boolean ImpedimentoparaIngreso(vehiculo Vehiculo);
+	
+	public boolean EsLunesoDomingo();
+	
 	
 	
 }

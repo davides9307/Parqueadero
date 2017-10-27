@@ -9,8 +9,9 @@ public interface repositorioVehiculo {
 	
 	public List<vehiculo> listarvehiculos();
 	public vehiculo obtenervehiculo(vehiculo Vehiculo);
-	public void guardarvehiculo(vehiculo Vehiculo);
-	
+	public vehiculo guardarvehiculo(vehiculo Vehiculo);
+	public vehiculo actualizar(vehiculo Vehiculo);
+	public vehiculo borrarvehiculo(vehiculo Vehiculo);
 
 
 }
