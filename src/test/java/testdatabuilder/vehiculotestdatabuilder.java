@@ -14,14 +14,14 @@ import com.ceiba.dominio.vehiculo;
 public class vehiculotestdatabuilder {
 
 	private static final String MATRICULA = "CRT903";
-	private static final String CILINDRAJE = "200CC";
+	private static final Integer CILINDRAJE = 200;
 	private static final String MARCA = "FERRARI";
 	private static final String FECHAENTRADA = "02/03/2017";
 	
 	
 	
 	private String Matricula;
-	private String Cilindraje;
+	private Integer Cilindraje;
 	private String Marca;
 	//private Date Fechaentrada;
 	
@@ -38,7 +38,7 @@ public class vehiculotestdatabuilder {
 		return this;
 	}
 
-	public vehiculotestdatabuilder conCilindraje(String cilindraje) {
+	public vehiculotestdatabuilder conCilindraje(Integer cilindraje) {
 		this.Cilindraje = cilindraje;
 		return this;
 	}

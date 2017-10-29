@@ -12,8 +12,9 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries( { @NamedQuery(name = "slot.findbytipo", query = "SELECT s FROM Slot s WHERE s.Tipoespacio = :tipo and idvehiculo IS NOT NULL"),
-@NamedQuery(name = "slot.setcampo", query = "UPDATE Slot s set s.idvehiculo = NULL WHERE s.idvehiculo = :id")
-
+@NamedQuery(name = "slot.setcampo", query = "UPDATE Slot s set s.idvehiculo = NULL WHERE s.idvehiculo = :id"),
+@NamedQuery(name = "slot.findall", query = "SELECT t FROM Slot t WHERE  t.idvehiculo IS NOT NULL"),
+@NamedQuery(name = "slot.find", query = "SELECT t FROM Slot t ")
 
 
 })

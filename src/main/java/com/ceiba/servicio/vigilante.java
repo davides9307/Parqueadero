@@ -25,17 +25,18 @@ public class vigilante implements servicioControlflujoVehiculo{
 	repositorioSlot RepositorioSlot;
 
 	@Override
-	public List<vehiculo> Obtenervehiculosparqueados() {
+	public List<Slot> Obtenervehiculosparqueados() {
 		
+	return	RepositorioSlot.Slotocupados();
 		
-		return Repositoriovehiculo.listarvehiculos();
+		//return Repositoriovehiculo.listarvehiculos();
 		
 	}
 
 	@Override
 	public String guardarvehiculos(vehiculoParqueado vehiculo_slot) {
 		
-		
+		//vehiculo_slot.getVehiculo().setParqueado("True");
 		
         if(!ImpedimentoparaIngreso(vehiculo_slot.getVehiculo())) {
         	if (existenespaciosdisponibles(vehiculo_slot.getSlot())) {

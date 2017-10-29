@@ -1,5 +1,8 @@
 package com.ceiba.dominio;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class vehiculoParqueado {
 	
 	
@@ -18,6 +21,11 @@ public class vehiculoParqueado {
 	}
 	public void setSlot(Slot slot) {
 		this.slot = slot;
+	}
+	
+	public vehiculoParqueado() {
+		
+		
 	}
 	
 	

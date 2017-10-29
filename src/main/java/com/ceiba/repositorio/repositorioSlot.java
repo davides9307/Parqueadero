@@ -13,6 +13,8 @@ public interface repositorioSlot {
 	public Slot borrarslot(Slot slot);	
 	
 	public void Actualizarslot(Slot slot);
+	
+	public List<Slot> Slotocupados();
 
 	
 }

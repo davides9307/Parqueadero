@@ -56,6 +56,14 @@ public class persistenciaSlot implements repositorioSlot{
 		Configuracionjpa.GetEntityManager().merge(slot);
 		
 	}
+
+	@Override
+	public List<Slot> Slotocupados() {
+	
+		Query query =Configuracionjpa.GetEntityManager().createNamedQuery("slot.findall");
+		return query.getResultList();
+	
+	}
 	
 	
 	

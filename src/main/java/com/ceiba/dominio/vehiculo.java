@@ -26,14 +26,13 @@ public class vehiculo {
 	private String Matricula;
 	
 	@Column(nullable=false)
-	private String Cilindraje;
+	private Integer Cilindraje;
 	
 	private String Marca;
 	
-	
-
-	
 	private LocalDateTime Fechaentrada;
+	
+	//private String parqueado;
 	
 	public vehiculo(){
 		
@@ -41,7 +40,7 @@ public class vehiculo {
 	}
 	
 	
-	public vehiculo(String matricula, String cilindraje,String Marca,LocalDateTime fechaentrada,String tipo) {
+	public vehiculo(String matricula,Integer cilindraje,String Marca,LocalDateTime fechaentrada,String tipo) {
 	
 		this.Matricula = matricula;
 		this.Cilindraje = cilindraje;
@@ -52,7 +51,7 @@ public class vehiculo {
 	
 	
 	
-	public vehiculo(String matricula, String cilindraje,String Marca) {
+	public vehiculo(String matricula,Integer cilindraje,String Marca) {
 		
 		this.Matricula = matricula;
 		this.Cilindraje = cilindraje;
@@ -61,7 +60,7 @@ public class vehiculo {
 	}
 
 	
-	public void Syncwith(String matricula, String cilindraje,String Marca,LocalDateTime fechaentrada,String tipo) {
+	public void Syncwith(String matricula,Integer cilindraje,String Marca,LocalDateTime fechaentrada,String tipo) {
 		this.Matricula = matricula;
 		this.Cilindraje = cilindraje;
 		this.Marca =Marca;
@@ -128,7 +127,7 @@ public class vehiculo {
 	}
 
 
-	public String getCilindraje() {
+	public Integer getCilindraje() {
 		return Cilindraje;
 	}
 
@@ -160,7 +159,7 @@ public class vehiculo {
 	}
 
 
-	public void setCilindraje(String cilindraje) {
+	public void setCilindraje(Integer cilindraje) {
 		Cilindraje = cilindraje;
 	}
 
@@ -179,6 +178,18 @@ public class vehiculo {
 
 
 
+/*
+	public String getParqueado() {
+		return parqueado;
+	}
+
+
+
+	public void setParqueado(String parqueado) {
+		this.parqueado = parqueado;
+	}
+
+*/
 
 	@Override
 	public String toString() {

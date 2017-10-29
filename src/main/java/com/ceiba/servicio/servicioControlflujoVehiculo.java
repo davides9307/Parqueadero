@@ -10,7 +10,7 @@ import com.ceiba.dominio.vehiculoParqueado;
 public interface servicioControlflujoVehiculo {
 
 	
-	public List<vehiculo> Obtenervehiculosparqueados();
+	public List<Slot> Obtenervehiculosparqueados();
 	
 	public String guardarvehiculos(vehiculoParqueado vehiculo_slot);
 	
