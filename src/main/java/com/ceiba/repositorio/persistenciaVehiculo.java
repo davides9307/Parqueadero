@@ -1,6 +1,7 @@
 package com.ceiba.repositorio;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +34,10 @@ public class persistenciaVehiculo implements repositorioVehiculo{
 
 	@Override
 	public vehiculo guardarvehiculo(vehiculo Vehiculo) {
+		
+	
+
+        
 		
 		Vehiculo.setFechaentrada(LocalDateTime.now());
 		return Configuracionjpa.GetEntityManager().merge(Vehiculo);
